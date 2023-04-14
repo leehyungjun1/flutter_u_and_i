@@ -37,11 +37,23 @@ class _HomeScreenState extends State<HomeScreen> {
     showCupertinoDialog(
       context: context,
       builder: (BuildContext context) {
-        return CupertinoDatePicker(
-          mode: CupertinoDatePickerMode.date,
-          onDateTimeChanged: (DateTime date) {},
+        return Align(
+          alignment: Alignment.bottomCenter,
+          child: Container(
+            color: Colors.white,
+            height: 300,
+            child: CupertinoDatePicker(
+              mode: CupertinoDatePickerMode.date,
+              onDateTimeChanged: (DateTime date) {
+                setState(() {
+                  firstDay = date;
+                });
+              },
+            ),
+          ),
         );
       },
+      barrierDismissible: true,
     );
   }
 }
